@@ -1,0 +1,46 @@
+body{
+    background-image: url(/img/thumb-1920-559128.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+ }
+ .formulario{
+    background: rgba(61, 84, 110, 0.877);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0 , 0.568);
+    color: white;
+ }
+ .form-control{
+   background-color: rgba(0, 0, 0, 0.3);
+   border-style: none;
+   transition: 0.5s ease-in;
+  
+ }
+ .form-control::placeholder{
+   color:white;
+ }
+ .form-control:focus{
+   background: none;
+   outline: none;
+   box-shadow: none ;
+ }
+
+.ingresar{
+   background: rgb(    42, 86, 139 );
+   padding: 10px;
+   font-size: 18px;
+   font-weight: 700!important;
+   color:white;
+   box-shadow: 0 0 30px rgba(0, 0, 0 , 0.900);
+   transition: 0.5s ease-in;
+}
+.ingresar:hover{
+   color:white;
+
+}
+.bton{
+   color: #fff;
+   background-color: #0495c9;
+   border-color: #357ebd;
+}
