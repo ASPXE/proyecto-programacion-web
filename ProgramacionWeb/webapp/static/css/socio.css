@@ -1,5 +1,5 @@
 body{
-    background-image: url(/img/backgroundble.jpg);
+    background-image: url(../img/backgroundble.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -28,3 +28,6 @@ body{
     top: 50%;
     transform: translate(50%, -50%);
  }
+#color{
+    color: red;
+}

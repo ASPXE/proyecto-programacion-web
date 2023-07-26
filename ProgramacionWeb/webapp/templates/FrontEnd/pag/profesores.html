@@ -7,99 +7,111 @@
     {%bootstrap_javascript%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/socio.css'%}">
-    <link rel="stylesheet" href="{%static 'css/sliderresponsive.css'%}">
+    <link rel="stylesheet" href="/css/socio.css">
+    <link rel="stylesheet" href="/css/sliderresponsive.css">
+    <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://kit.fontawesome.com/f90d3bf50d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    
-    <title>Bienvenido Profesor</title>
+    <title>Agregar Profesor</title>
+    <link rel="shortcut icon" href="/img/faviconinsertar.png">
 
 </head>
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
-    <label class="toggle fw-bold font" for="toggle">≡</label>
+    <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
+    <label class="toggle" onclick="regresarmenu()" id="regresarmenu">Menu Principal</label>   
     <div class="container-menu">
         <nav class="menu">
-            <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
-            <a href="{%url 'socio'%}" class="item pt-3">Socios</a>
-            <a href="{%url 'profesores'%}" class="item">Profesores</a>
-            <a href="" class="item">Instalaciones</a>
-            <a href="{%url 'servicios'%}" class="item">Servicios</a>
-         
-            <a href="{%url 'menu'%}" class="item">Regresar<img src="{%static 'img/back.png'%}" height="30" width="30" class="p-2"></a>
+            <img  src="/img/gym-near.png" width="70" height="70" class="pb-2" >
+            <a href="socio.html" class="item pt-3">Socios</a>
+            <a href="profesores.html" class="item">Profesores</a>
+            <a href="instalaciones.html" class="item">Instalaciones</a>
+            <a href="servicios.html" class="item">Servicios</a>
+            <a href="centro.html" class="item">Centro</a>
+
         </nav>
     </div>
     <div class="container">
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold">Profesores</label>
         </div>
-        <!--TODO: Crear el metodo que procesa el action-->
-        <form class="row" action="" method="POST">
-            {csrf_token}
+
+        <form class="row">
                 <div class="col-3 g-5 ">
-                    <label for="Snombre" class="form-label textwhite">Nombre</label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe tu nombre" name="nombre">
+                    <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe tu nombre">
                 </div>
 
 
                 <div class="col-3 g-5">
-                    <label for="SapellidoP" class="form-label textwhite">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="SapellidoP" placeholder="Escribe tu primer Apellido" name="apellidoP">
+                    <label for="SapellidoP" class="form-label textwhite">Apellido Paterno<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="SapellidoP" placeholder="Escribe tu primer Apellido">
                 </div>
 
 
                 <div class="col-3 g-5">
                     <label for="SapellidoM" class="form-label textwhite">Apellido Materno</label>
-                    <input type="text" class="form-control" id="SapellidoM" placeholder="Escribe tu segundo Apellido" name="apellidoM">
+                    <input type="text" class="form-control" id="SapellidoM" placeholder="Escribe tu segundo Apellido">
                 </div>
 
 
                 <div class="col-4 g-5">
-                    <label for="Scalle" class="form-label textwhite">Calle</label>
-                    <input type="text" class="form-control" id="Scalle" placeholder="Escribe tu calle" name="calle">
+                    <label for="Scalle" class="form-label textwhite">Calle<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="Scalle" placeholder="Escribe tu calle">
                 </div>
 
 
                 <div class="col-2 g-5">
-                    <label for="Snumext" class="form-label textwhite">Numero Ext</label>
-                    <input type="text" class="form-control" id="Snumext" placeholder="Numero Ext" name="numExt">
+                    <label for="Snumext" class="form-label textwhite">Numero Ext<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="Snumext" placeholder="Numero Ext">
                 </div>
                 
 
                 <div class="col-2 g-5">
                     <label for="Snumint" class="form-label textwhite">Numero Int</label>
-                    <input type="text" class="form-control" id="Snumint" placeholder="Numero Int" name="numInt">
+                    <input type="text" class="form-control" id="Snumint" placeholder="Numero Int">
                 </div>
-
-
-                <div class="col-3 g-5">
-                    <label for="Scolonia" class="form-label textwhite">Colonia</label>
-                    <input type="text" class="form-control" id="SColonia" placeholder="Escribe tu Colonia" name="colonia">
-                </div>
-
 
                 <div class="col-2 g-5">
-                    <label for="Scodpost" class="form-label textwhite">Codigo Postal</label>
-                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe tu Codigo Postal" name="cp">
+                    <label for="Scodpost" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe tu Codigo Postal">
                 </div>
 
 
                 <div class="col-3 g-5">
-                    <label for="Sestado" class="form-label textwhite">Estado</label>
-                    <input type="text" class="form-control" id="Sestado" placeholder="Escribe Estado" name="estado">
+                    <label for="Scolonia" class="form-label textwhite">Colonia<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>AQUI VAN LAS COLONIAS, ANTONIO</option>
+                        <option value="1">ESTADOS</option>
+                    </select>                      
                 </div>
 
                 <div class="col-3 g-5">
-                    <label for="Smunicipio" class="form-label textwhite">Municipio</label>
-                    <input type="text" class="form-control" id="Smunicipio" placeholder="Escribe tu Municipio" name="municipio">
+                    <label for="Sestado" class="form-label textwhite">Estado<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>AQUI VAN LOS ESTADOS, ANTONIO</option>
+                        <option value="1">ESTADOS</option>
+                    </select>                      
+                </div>
+
+                <div class="col-3 g-5">
+                    <label for="Smunicipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>AQUI VAN LOS MUNICIPIOS, ANTONIO</option>
+                        <option value="1">MUNICIPIOS</option>
+                    </select>
                 </div>
                 
                 <div class="col-3 g-5">
-                    <label for="Sgradoestudio" class="form-label textwhite">Grado De Estudio</label>
-                    <input type="text" class="form-control" id="Sgradoestudio" placeholder="Escribe tu Grado" name="gradoEstudio">
+                    <label for="Sgradoestudio" class="form-label textwhite">Grado de estudio<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>AQUI VAN LOS GRADOS de estudio, ANTONIO</option>
+                        <option value="1">MUNICIPIOS</option>
+                    </select>
                 </div>
 
 
