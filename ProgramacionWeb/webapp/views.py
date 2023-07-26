@@ -49,14 +49,23 @@ def socio(request):
 def administrador(request):
     return render(request, 'FrontEnd/pag/administrador.html')
 
+def administradorSocio(request):
+    return render(request, 'FrontEnd/pag/administradorsocio.html')
+
+def administradorProfesores(request):
+    return render(request, 'FrontEnd/pag/administradorprofesores.html')
+def administradorInstalaciones(request):
+    return render(request, 'FrontEnd/pag/administradorinstalaciones.html')
+def administradorServicios(request):
+    return render(request, 'FontEnd/pag/administradorservicios.html')
 def profesores(request):
-    return render(request,)
+    return render(request, 'FrontEnd/pag/profesores.html')
 def instalaciones(request):
-    return render(request,)
+    return render(request, 'FrontEnd/pag/instalaciones.html')
 
 def servicios(request):
-    return render(request,)
+    return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):
-    return render(request,)
+    return render(request, 'FrontEnd/pag/centro.html')
 
 

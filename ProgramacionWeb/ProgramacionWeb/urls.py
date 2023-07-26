@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.views import signIn, signUp, menu, socio
+from webapp.views import signIn, signUp, menu, socio, administrador, administradorSocio, administradorProfesores, \
+    administradorServicios, administradorInstalaciones, instalaciones, centros, profesores, servicios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,13 @@ urlpatterns = [
     path('signUp/', signUp, name='signUp'),
     path('menu/', menu, name='menu'),
     path('socio/', socio, name='socio'),
-    path()
+    path('administrador/', administrador, name='administrador'),
+    path('administradorsocio/', administradorSocio, name='administradorsocio'),
+    path('administradorprofesores/', administradorProfesores, name='administradorprofesores'),
+    path('administradosinstalaciones/', administradorInstalaciones, name='administradorinstalaciones'),
+    path('administradorservicios/', administradorServicios, name='administradorservicios'),
+    path('profesores/', profesores, name='profesores'),
+    path('instalaciones/', instalaciones, name='instalaciones'),
+    path('servicios/', servicios, name='servicios'),
+    path('centros/', centros, name='centros')
 ]

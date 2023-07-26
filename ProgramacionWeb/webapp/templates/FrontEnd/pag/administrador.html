@@ -30,11 +30,11 @@
     <div class="container-menu">
       <nav class="menu">
           <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
-          <a href="administrador.html" class="item pt-3">Centro</a>
-          <a href="administradorsocio.html" class="item">Socios</a>
-          <a href="administradorprofesores.html" class="item">Profesores</a>
-          <a href="admnistradorinstalaciones.html" class="item">Instalaciones</a>
-          <a href="administradorservicios.html" class="item">Servicios</a>
+          <a href="{%url 'administrador'%}" class="item pt-3">Centro</a>
+          <a href="{%url 'administradorsocio'%}" class="item">Socios</a>
+          <a href="{%url 'administradorprofesores'%}" class="item">Profesores</a>
+          <a href="{%url 'administradorinstalaciones'%}" class="item">Instalaciones</a>
+          <a href="{%url 'administradorservicios'%}" class="item">Servicios</a>
              </nav>
   </div>
     <div class="container">
@@ -125,36 +125,33 @@
 
         
             <div class="container about" id="inner-div2">
-               <div class="row" id="inner-div">
-                <div class="col-lg-3 mt-4 mt-lg-0 m-2" id="actualizar">
-                    <div class="d-flex member">
-                       <div class="pic"><img src="/img/actualizar.png" class="img-fluid" alt=""></div>
-                       <div class="container text-center ">
-                          <h4 class="text-black pt-5">ACTUALIZAR</h4>
-                          <div class="d-flex mt-3">
-                          </div>
-                       </div>
-                    </div>
-                 </div>
+        <div class="row" id="inner-div">
 
-                  <div class="col-lg-3 mt-4 mt-lg-0 m-2" id="borrar">
-                    <div class="d-flex member">
-                       <div class="pic"><img src="/img/borrar.png" class="img-fluid" alt=""></div>
-                       <div class="container text-center">
-                          <h4 class="text-black pt-5">BORRAR</h4>
-                          <div class="d-flex mt-3">
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-               </div>
-            </div>
+          <form class="col-lg-4 mt-4 mt-lg-0 m-2">
+            <button type="button" class="d-flex member"
+              class="btn btn-outline-light" id="letra">
+              <h2>ACTUALIZAR
+                <img src="{%static 'img/Nueva carpeta/actualizar.png'%}" width="35"
+                  class="img-fluid">
+              </h2>
+            </button>
+            <div class="d-flex mt-3"></div>
+          </form>
+
+          <form class="col-lg-4 mt-4 mt-lg-0 m-2">
+            <button type="button" class="d-flex member"
+              class="btn btn-outline-light">
+              <h2>BORRAR
+                <img src="{%static 'img/Nueva carpeta/borrar.png'%}" width="35"
+                  class="img-fluid">
+              </h2>
+            </button>
+            <div class="d-flex mt-3"></div>
+          </form>
+
+        </div>
+      </div>
          
     </div>
-    <script>
-        $('#regresarmenu').click(function() {
-           location.href = '/pag/menu.html';
-        });
-    </script> 
 </body>
 </html>
