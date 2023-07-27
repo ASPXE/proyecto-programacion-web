@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from servicios.models import Servicios
+
 
 # Create your views here.
 
@@ -64,6 +66,16 @@ def instalaciones(request):
     return render(request, 'FrontEnd/pag/instalaciones.html')
 
 def servicios(request):
+
+    if request.method == 'POST':
+        snombre = request.POST['snombre']
+        costo = request.POST['costo']
+
+        servicio = Servicios(nombre=snombre, costo=costo)
+        servicio.save()
+        messages.success(request, '¡Servicio registrado exitosamente!')
+        return redirect('servicios')
+
     return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):
     return render(request, 'FrontEnd/pag/centro.html')

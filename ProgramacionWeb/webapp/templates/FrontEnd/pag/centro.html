@@ -32,7 +32,7 @@
             <a href="{%url 'profesores'%}" class="item">Profesores</a>
             <a href="{%url 'instalaciones'%}" class="item">Instalaciones</a>
             <a href="{%url 'servicios'%}" class="item">Servicios</a>
-            <a href="{%url 'centro'%}" class="item">Centro</a>
+            <a href="{%url 'centros'%}" class="item">Centro</a>
                     
 
         </nav>
@@ -41,36 +41,37 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold">Centros</label>
         </div>
-        <form class="row">
+        <form class="row" method="POST" action="">
+            {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre">
+                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="nombreCentro" required>
                 </div>
 
                 <div class="col-4 g-5">
                     <label for="Scalle" class="form-label textwhite">Calle<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Scalle" placeholder="Escribe la calle">
+                    <input type="text" class="form-control" id="Scalle" placeholder="Escribe la calle" name="calle" required>
                 </div>
 
                 <div class="col-2 g-5">
                     <label for="Snumext" class="form-label textwhite">Numero Ext<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snumext" placeholder="Numero Ext">
+                    <input type="text" class="form-control" id="Snumext" placeholder="Numero Ext" name="numExt" required>
                 </div>
                 
 
                 <div class="col-2 g-5">
                     <label for="Snumint" class="form-label textwhite">Numero Int</label>
-                    <input type="text" class="form-control" id="Snumint" placeholder="Numero Int">
+                    <input type="text" class="form-control" id="Snumint" placeholder="Numero Int" name="numInt">
                 </div>
 
                 <div class="col-2 g-5">
                     <label for="Scodpost" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe el Codigo Postal">
+                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe el Codigo Postal" name="cp" required>
                 </div>
                 
                 <div class="col-3 g-5">
                     <label for="Scolonia" class="form-label textwhite">Colonia<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" id="Scolonia">
                         <option selected>AQUI VAN LAS COLONIAS, ANTONIO</option>
                         <option value="1">ESTADOS</option>
                     </select>                      
@@ -78,7 +79,7 @@
 
                 <div class="col-3 g-5">
                     <label for="Sestado" class="form-label textwhite">Estado<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" id="Sestado">
                         <option selected>AQUI VAN LOS ESTADOS, ANTONIO</option>
                         <option value="1">ESTADOS</option>
                     </select>                      
@@ -86,14 +87,14 @@
 
                 <div class="col-3 g-5">
                     <label for="Smunicipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" id="Smunicipio">
                         <option selected>AQUI VAN LOS MUNICIPIOS, ANTONIO</option>
                         <option value="1">MUNICIPIOS</option>
                     </select>
                 </div>
                 
                 <div class="pt-5 text-center"  >
-                    <button class="mi-boton" >Sign Up</button>
+                    <button class="mi-boton" >Guardar centro</button>
                 </div>
 
         </form>

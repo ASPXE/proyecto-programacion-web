@@ -31,7 +31,7 @@
             <a href="{%url 'profesores'%}" class="item">Profesores</a>
             <a href="{%url 'instalaciones'%}" class="item">Instalaciones</a>
             <a href="{%url 'servicios'%}" class="item">Servicios</a>
-            <a href="{%url 'centro'%}" class="item">Centro</a>
+            <a href="{%url 'centros'%}" class="item">Centro</a>
 
         </nav>
     </div>
@@ -39,24 +39,23 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold">Servicios</label>
         </div>
-        <!--TODO Agregar el action y terminar de configurar el formulario-->
-        <form class="row" method="POST" action="">
+        <form class="row" method="POST" action="{%url 'servicios'%}">
             {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre">
+                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="snombre" required>
                 </div>
 
 
                 <div class="col-3 g-5">
                     <label for="Scosto" class="form-label textwhite">Costo<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Scosto" placeholder="Escribe el costo">
+                    <input type="number" step="any" class="form-control" id="Scosto" placeholder="Escribe el costo" name="costo" required>
                 </div>
 
 
                
                 <div class="pt-5 text-center"  >
-                    <button class="mi-boton" >Sign Up</button>
+                    <button class="mi-boton" >Guardar servicio</button>
                 </div>
 
         </form>

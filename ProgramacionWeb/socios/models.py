@@ -20,3 +20,8 @@ class Socios(models.Model):
     municipio = models.ForeignKey(Municipios, on_delete=models.PROTECT)
     estado = models.ForeignKey(Estados, on_delete=models.PROTECT)
     mensualidad = models.FloatField()
+
+    def __str__(self):
+        return f'ID Socio: {self.id}, Nombres: {self.nombres}, Apellido Paterno: {self.apellidoP}, Apellido Materno: {self.apellidoM},' \
+               f'Calle: {self.calle}, numExt: {self.numExt}, numInt: {self.numInt}, Colonia: {self.colonia}, Codigo Postal: {self.cp},' \
+               f'Municipio: {self.municipio}, Estado: {self.estado}, Mensualidad: {self.mensualidad}'

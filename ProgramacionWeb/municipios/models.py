@@ -8,3 +8,6 @@ from estados.models import Estados
 class Municipios(models.Model):
     nombre = models.CharField(max_length=40)
     estado = models.ForeignKey(Estados, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f'ID Municipios: {self.id}, Nombre: {self.nombre}, Estado: {self.estado}'
