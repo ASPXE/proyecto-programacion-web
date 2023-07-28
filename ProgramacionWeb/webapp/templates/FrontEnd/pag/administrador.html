@@ -25,7 +25,11 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <label class="toggle" id="regresarmenu">Menu Principal</label>
+    <form method="POST", action="{%url 'menu'%}">
+        {%csrf_token%}
+        <button class="toggle" id="regresarmenu">Menu Principal</button>
+    </form>
+
  
     <div class="container-menu">
       <nav class="menu">
@@ -55,69 +59,22 @@
                   <th scope="col">Codigo Postal</th>
                   <th scope="col">Municipio</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Pais</th>
                 </tr>
               </thead>
               <tbody>
+                {%for centro in centros%}
                 <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{centro.id}}</td>
+                  <td>{{centro.nombre}}</td>
+                  <td>{{centro.calle}}</td>
+                  <td>{{centro.numExt}}</td>
+                  <td>{{centro.numInt}}</td>
+                  <td>{{centro.colonia_id}}</td>
+                  <td>{{centro.codigoPostal_id}}</td>
+                  <td>{{centro.municipio_id}}</td>
+                  <td>{{centro.estado_id}}</td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td colspan="2"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td colspan="2"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-
-                </tr>
+                {%endfor%}
               </tbody>
             </table>
 

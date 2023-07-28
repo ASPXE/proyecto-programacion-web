@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'paises',
     'gradoEstudios',
     'bootstrap5',
-    'centros'
+    'centros',
+    'instalaciones',
+    'instalacionesCentros'
 ]
 
 MIDDLEWARE = [

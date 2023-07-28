@@ -23,14 +23,17 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <label class="toggle" id="regresarmenu">Menu Principal</label>
+    <form method="POST", action="{%url 'menu'%}">
+        {%csrf_token%}
+        <button class="toggle" id="regresarmenu">Menu Principal</button>
+    </form>
     <div class="container-menu">
       <nav class="menu">
           <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
           <a href="{%url 'administrador'%}" class="item pt-3">Centro</a>
           <a href="{%url 'administradorsocio'%}" class="item">Socios</a>
           <a href="{%url 'administradorprofesores'%}" class="item">Profesores</a>
-          <a href="{%url 'admnistradorinstalaciones'%}" class="item">Instalaciones</a>
+          <a href="{%url 'administradorinstalaciones'%}" class="item">Instalaciones</a>
           <a href="{%url 'administradorservicios'%}" class="item">Servicios</a>
              </nav>
   </div>

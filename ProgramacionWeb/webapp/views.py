@@ -3,13 +3,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from centros.models import Centros
+from profesores.models import Profesores
 from servicios.models import Servicios
 
 
 # Create your views here.
 
 def signIn(request):
-
+    # Recuperamos los campos del formulario
     if request.method == 'POST':
         usuario = request.POST['usuario']
         contra = request.POST['contra']
@@ -49,17 +51,29 @@ def socio(request):
     return render(request, 'FrontEnd/pag/socio.html')
 
 def administrador(request):
-    return render(request, 'FrontEnd/pag/administrador.html')
+
+    # Recuperamos todos los centros de la base de datos
+    centros = Centros.objects.all()
+
+    return render(request, 'FrontEnd/pag/administrador.html', {'centros':centros})
 
 def administradorSocio(request):
     return render(request, 'FrontEnd/pag/administradorsocio.html')
 
 def administradorProfesores(request):
-    return render(request, 'FrontEnd/pag/administradorprofesores.html')
+
+    # Recuperamos todos los profesores de la BD
+    profesores = Profesores.objects.all()
+
+    return render(request, 'FrontEnd/pag/administradorprofesores.html', {'profesores':profesores})
 def administradorInstalaciones(request):
     return render(request, 'FrontEnd/pag/administradorinstalaciones.html')
 def administradorServicios(request):
-    return render(request, 'FontEnd/pag/administradorservicios.html')
+
+    # Recuperamos todos los registros de servicios de la BD
+    servicios = Servicios.objects.all()
+
+    return render(request, 'FrontEnd/pag/administradorservicios.html', {'servicios':servicios})
 def profesores(request):
     return render(request, 'FrontEnd/pag/profesores.html')
 def instalaciones(request):

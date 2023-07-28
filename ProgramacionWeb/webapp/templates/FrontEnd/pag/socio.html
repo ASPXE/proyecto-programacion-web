@@ -23,7 +23,10 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <label class="toggle" onclick="regresarmenu()" id="regresarmenu">Menu Principal</label>    <div class="container-menu">
+    <form method="POST", action="{%url 'menu'%}">
+        {%csrf_token%}
+        <button class="toggle" id="regresarmenu">Menu Principal</button>
+    </form>    <div class="container-menu">
         <nav class="menu">
             <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
             <a href="{%url 'socio'%}" class="item pt-3">Socios</a>
