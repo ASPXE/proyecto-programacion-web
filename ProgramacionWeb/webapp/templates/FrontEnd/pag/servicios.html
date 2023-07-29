@@ -23,8 +23,7 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <!--TODO cambiar esto del menu-->
-    <form method="POST", action="{%url 'menu'%}">
+    <form method="POST" action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>    <div class="container-menu">
@@ -46,7 +45,7 @@
             {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="snombre" required>
+                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="nombreServicio" required>
                 </div>
 
 

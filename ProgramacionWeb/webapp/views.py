@@ -7,6 +7,7 @@ from centros.models import Centros
 from instalacionesCentros.models import InstalacionesCentros
 from profesores.models import Profesores
 from servicios.models import Servicios
+from socios.models import Socios
 
 
 # Create your views here.
@@ -59,7 +60,11 @@ def administrador(request):
     return render(request, 'FrontEnd/pag/administrador.html', {'centros':centros})
 
 def administradorSocio(request):
-    return render(request, 'FrontEnd/pag/administradorsocio.html')
+
+    # Recuperamos todos los registros de socios de la BD
+    socios = Socios.objects.all()
+
+    return render(request, 'FrontEnd/pag/administradorsocio.html', {'socios':socios})
 
 def administradorProfesores(request):
 
@@ -85,16 +90,16 @@ def instalaciones(request):
     return render(request, 'FrontEnd/pag/instalaciones.html')
 
 def servicios(request):
-
+    """
     if request.method == 'POST':
-        snombre = request.POST['snombre']
+        nombre = request.POST['nombreServicio']
         costo = request.POST['costo']
 
-        servicio = Servicios(nombre=snombre, costo=costo)
+        servicio = Servicios(nombre=nombre, costo=costo)
         servicio.save()
         messages.success(request, '¡Servicio registrado exitosamente!')
         return redirect('servicios')
-
+    """
     return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):
     return render(request, 'FrontEnd/pag/centro.html')

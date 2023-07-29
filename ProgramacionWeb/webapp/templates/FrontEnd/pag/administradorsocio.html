@@ -27,6 +27,11 @@
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
+    <!--TODO Agregar el action que habra el pop-up para insertar un socio-->
+    <form method="POST" action="">
+        {%csrf_token%}
+        <button class="toggle" id="crearsocio">Insertar</button>
+    </form>
     <div class="container-menu">
       <nav class="menu">
           <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
@@ -41,8 +46,34 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR SOCIO</label>
         </div>
-        
-        <form class="row">
+        <form action>
+        <div class=" g-5 pb-4 ">
+          <input type="search" class="form-control " id="buscador"
+            placeholder="Buscar">
+        </form>
+        <div class="pt-3">
+          <form action>
+            <select class="form-select" id="cbAdm">
+              <option selected>¿Qué va a buscar?</option>
+              <option value="1">Matricula</option>
+              <option value="2">Nombre</option>
+              <option value="3">1°Apellido</option>
+              <option value="4">2°Apellido</option>
+              <option value="5">Mensualidad</option>
+              <option value="6">Vencimiento</option>
+              <option value="7">Dirección</option>
+              <option value="8">Código Postal</option>
+              <option value="8">Colonia</option>
+              <option value="8">Municipio</option>
+              <option value="8">Estado</option>
+              <option value="8">Pais</option>
+
+            </select>
+          </form>
+        </div>
+      </div>
+        <form class="row" action="{%url 'administradorsocio'%}">
+            {%csrf_token%}
             <table class="table">
                 <thead>
                   <tr class="table-dark">
@@ -57,83 +88,27 @@
                     <th scope="col">Codigo Postal</th>
                     <th scope="col">Municipio</th>
                     <th scope="col">Estado</th>
-                    <th scope="col">Pais</th>
                     <th scope="col">Mensualidad</th>
                   </tr>
                 </thead>
                 <tbody>
+                  {%for socio in socios%}
                   <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{socio.id}}</td>
+                    <td>{{socio.nombres}}</td>
+                    <td>{{socio.apellidoP}}</td>
+                    <td>{{socio.apellidoM}}</td>
+                    <td>{{socio.calle}}</td>
+                    <td>{{socio.numExt}}</td>
+                    <td>{{socio.numInt}}</td>
+                    <td>{{socio.colonia}}</td>
+                    <td>{{socio.cp}}</td>
+                    <td>{{socio.municipio}}</td>
+                    <td>{{socio.estado}}</td>
+                    <td>{{socio.mensualidad}}</td>
+                      <td> <form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></td></form>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                  {%endfor%}
                 </tbody>
               </table>
 

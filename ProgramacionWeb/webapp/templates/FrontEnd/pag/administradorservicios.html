@@ -23,9 +23,14 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <form method="POST", action="{%url 'menu'%}">
+    <form method="POST" action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
+    </form>
+    <!--TODO Agregar el action que habra el pop-up para insertar un servicio-->
+    <form method="POST" action="">
+        {%csrf_token%}
+        <button class="toggle" id="crearservicios">Insertar</button>
     </form>
     <div class="container-menu">
       <nav class="menu">
@@ -42,8 +47,24 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR SERVICIOS</label>
         </div>
-        
+        <form action>
+        <div class=" g-5 pb-4 ">
+          <input type="search" class="form-control " id="buscador"
+            placeholder="Buscar">
+        </form>
+        <div class="pt-3">
+          <form action>
+            <select class="form-select" id="cbAdm">
+              <option selected>¿Qué va a buscar?</option>
+              <option value="1">N°Servicios</option>
+              <option value="2">Nombre</option>
+              <option value="3">Costo</option>
+            </select>
+          </form>
+        </div>
+      </div>
         <form class="row">
+            {%csrf_token%}
             <table class="table">
                 <thead>
                   <tr class="table-dark">
@@ -58,6 +79,7 @@
                     <td>{{servicio.id}}</td>
                     <td>{{servicio.nombre}}</td>
                     <td>{{servicio.costo}}</td>
+                      <td> <form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></td></form>
                   </tr>
                   {%endfor%}
                 </tbody>
@@ -66,32 +88,21 @@
         </form>
 
         
-            <div class="container about" id="inner-div2">
+        <div class="container about" id="inner-div2">
         <div class="row" id="inner-div">
 
           <form class="col-lg-4 mt-4 mt-lg-0 m-2">
-            <button type="button" class="d-flex member"
-              class="btn btn-outline-light" id="letra">
-              <h2>ACTUALIZAR
-                <img src="{%static 'img/Nueva carpeta/actualizar.png'%}" width="35"
-                  class="img-fluid">
-              </h2>
+            {%csrf_token%}
+            <button type="button" class="d-flex member" class="btn btn-outline-light" id="letra" >
+                <h2>ACTUALIZAR
+                  <img src="{%static 'img/Nueva carpeta/actualizar.png'%}" width="35" class="img-fluid">
+                </h2>
             </button>
-            <div class="d-flex mt-3"></div>
-          </form>
+         <div class="d-flex mt-3"></div>
+         </form>
 
-          <form class="col-lg-4 mt-4 mt-lg-0 m-2">
-            <button type="button" class="d-flex member"
-              class="btn btn-outline-light">
-              <h2>BORRAR
-                <img src="{%static 'img/Nueva carpeta/borrar.png'%}" width="35"
-                  class="img-fluid">
-              </h2>
-            </button>
-            <div class="d-flex mt-3"></div>
-          </form>
 
-        </div>
+         </div>
       </div>
          
     </div>

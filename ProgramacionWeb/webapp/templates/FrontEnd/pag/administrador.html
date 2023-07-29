@@ -29,6 +29,12 @@
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
+    <!--TODO Agregar action que habra el pop-up para insertar un centro-->
+    <form method="POST" action="">
+       {%csrf_token%}
+       <button class="toggle" id="crearcentro">Insertar</button>
+    </form>
+
 
  
     <div class="container-menu">
@@ -51,6 +57,21 @@
             <input type="search" class="form-control " id="buscador" placeholder="Buscar">
           </div>
         </form>
+        <div class="pt-3">
+          <form action>
+            <select class="form-select" id="cbAdm">
+              <option selected>¿Qué va a buscar?</option>
+              <option value="1">N°Centro</option>
+              <option value="2">Nombre</option>
+              <option value="3">Dirección</option>
+              <option value="4">Código postal</option>
+              <option value="5">Colonia</option>
+              <option value="6">Municipio</option>
+              <option value="7">Estado</option>
+              <option value="8">Pais</option>
+            </select>
+          </form>
+        </div>
         <div class="pt-3">
                 <form class="row">
               <table class="table">

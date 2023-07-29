@@ -23,9 +23,14 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <form method="POST", action="{%url 'menu'%}">
+    <form method="POST" action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
+    </form>
+    <!--TODO Agregar el action que habra el pop-up para insertar una instalacion-->
+    <form method="POST" action="">
+        {%csrf_token%}
+        <button class="toggle" id="crearinstalaciones">Insertar</button>
     </form>
     <div class="container-menu">
       <nav class="menu">
@@ -41,7 +46,22 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR INSTALACIONES CENTRO</label>
         </div>
-        
+        <form action>
+        <div class=" g-5 pb-4 ">
+          <input type="search" class="form-control " id="buscador"
+            placeholder="Buscar">
+        </form>
+        <div class="pt-3">
+          <form action>
+            <select class="form-select" id="cbAdm">
+              <option selected>¿Qué va a buscar?</option>
+              <option value="1">N°Instalación centro</option>
+              <option value="2">Instalaciones</option>
+              <option value="3">Centro</option>
+            </select>
+          </form>
+        </div>
+      </div>
         <form class="row">
             <table class="table">
                 <thead>
@@ -57,6 +77,7 @@
                     <td>{{registro.id}}</td>
                     <td>{{registro.instalacion}}</td>
                     <td>{{registro.centro}}</td>
+                    <td> <form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></td></form>
                   </tr>
                   {%endfor%}
                 </tbody>
