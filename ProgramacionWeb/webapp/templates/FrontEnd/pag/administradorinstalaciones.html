@@ -52,11 +52,13 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {%for registro in instalacionesCentros%}
                   <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
+                    <td>{{registro.id}}</td>
+                    <td>{{registro.instalacion}}</td>
+                    <td>{{registro.centro}}</td>
                   </tr>
+                  {%endfor%}
                 </tbody>
               </table>
 

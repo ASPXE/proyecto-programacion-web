@@ -25,7 +25,7 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <form method="POST", action="{%url 'menu'%}">
+    <form method="POST" action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
@@ -45,40 +45,49 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR CENTRO</label>
         </div>
-        
-        <form class="row">
-          <table class="table">
-              <thead>
-                <tr class="table-dark">
-                  <th scope="col">IDcentro</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Calle</th>
-                  <th scope="col">Numero Ext</th>
-                  <th scope="col">Numero Int</th>
-                  <th scope="col">Colonia</th>
-                  <th scope="col">Codigo Postal</th>
-                  <th scope="col">Municipio</th>
-                  <th scope="col">Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                {%for centro in centros%}
-                <tr>
-                  <td>{{centro.id}}</td>
-                  <td>{{centro.nombre}}</td>
-                  <td>{{centro.calle}}</td>
-                  <td>{{centro.numExt}}</td>
-                  <td>{{centro.numInt}}</td>
-                  <td>{{centro.colonia_id}}</td>
-                  <td>{{centro.codigoPostal_id}}</td>
-                  <td>{{centro.municipio_id}}</td>
-                  <td>{{centro.estado_id}}</td>
-                </tr>
-                {%endfor%}
-              </tbody>
-            </table>
 
-      </form>
+        <form action="">
+          <div class=" g-5 pb-4 ">
+            <input type="search" class="form-control " id="buscador" placeholder="Buscar">
+          </div>
+        </form>
+        <div class="pt-3">
+                <form class="row">
+              <table class="table">
+                  <thead>
+                    <tr class="table-dark">
+                      <th scope="col">IDcentro</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Calle</th>
+                      <th scope="col">Numero Ext</th>
+                      <th scope="col">Numero Int</th>
+                      <th scope="col">Colonia</th>
+                      <th scope="col">Codigo Postal</th>
+                      <th scope="col">Municipio</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for centro in centros%}
+                    <tr>
+                      <td>{{centro.id}}</td>
+                      <td>{{centro.nombre}}</td>
+                      <td>{{centro.calle}}</td>
+                      <td>{{centro.numExt}}</td>
+                      <td>{{centro.numInt}}</td>
+                      <td>{{centro.colonia}}</td>
+                      <td>{{centro.codigoPostal}}</td>
+                      <td>{{centro.municipio}}</td>
+                      <td>{{centro.estado}}</td>
+                        <td><form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></form></td>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+                </table>
+
+          </form>
+        </div>
+
 
         
             <div class="container about" id="inner-div2">

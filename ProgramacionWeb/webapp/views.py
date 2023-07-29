@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 from centros.models import Centros
+from instalacionesCentros.models import InstalacionesCentros
 from profesores.models import Profesores
 from servicios.models import Servicios
 
@@ -67,7 +68,11 @@ def administradorProfesores(request):
 
     return render(request, 'FrontEnd/pag/administradorprofesores.html', {'profesores':profesores})
 def administradorInstalaciones(request):
-    return render(request, 'FrontEnd/pag/administradorinstalaciones.html')
+
+    # Recuperamos todos los registros de instalacionesCentros
+    instalacionesCentros = InstalacionesCentros.objects.all()
+
+    return render(request, 'FrontEnd/pag/administradorinstalaciones.html', {'instalacionesCentros':instalacionesCentros})
 def administradorServicios(request):
 
     # Recuperamos todos los registros de servicios de la BD

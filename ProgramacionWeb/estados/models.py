@@ -10,4 +10,4 @@ class Estados(models.Model):
     pais = models.ForeignKey(Paises, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f'ID Estado: {self.id}, Nombre: {self.nombre}, Pais: {self.pais}'
+        return f'{self.nombre} '

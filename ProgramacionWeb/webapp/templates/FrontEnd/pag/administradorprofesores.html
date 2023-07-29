@@ -27,6 +27,10 @@
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
+    <form method="POST" action="">
+        {%csrf_token%}
+        <button class="toggle" id="crearprofes">Insertar</button>
+    </form>
     <div class="container-menu">
       <nav class="menu">
           <img  src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2" >
@@ -41,7 +45,28 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR PROFESORES</label>
         </div>
-        
+        <form action="">
+          <div class=" g-5 pb-4 ">
+            <input type="search" class="form-control " id="buscador" placeholder="Buscar">
+        </form>
+        <div class="pt-3">
+          <form action="">
+              <select class="form-select" id="cbAdm">
+                <option selected >¿Qué va a buscar?</option>
+                <option value="1">Matricula</option>
+                <option value="2">Nombre</option>
+                <option value="3">1°Apellido</option>
+                <option value="4">2°Apellido</option>
+                <option value="5">Dirección</option>
+                <option value="6">Código postal</option>
+                <option value="7">Colonia</option>
+                <option value="8">Municipio</option>
+                <option value="9">Estado</option>
+                <option value="10">Pais</option>
+                <option value="11">Grado De Estudios</option>
+              </select>
+            </form>
+        </div>
         <form class="row">
             <table class="table">
                 <thead>
@@ -70,11 +95,12 @@
                     <td>{{profesor.calle}}</td>
                     <td>{{profesor.numExt}}</td>
                     <td>{{profesor.numInt}}</td>
-                    <td>{{profesor.colonia_id}}</td>
-                    <td>{{profesor.cp_id}}</td>
-                    <td>{{profesor.municipio_id}}</td>
-                    <td>{{profesor.estado_id}}</td>
-                    <td>{{profesor.gradoEstudios_id}}</td>
+                    <td>{{profesor.colonia}}</td>
+                    <td>{{profesor.cp}}</td>
+                    <td>{{profesor.municipio}}</td>
+                    <td>{{profesor.estado}}</td>
+                    <td>{{profesor.gradoEstudios}}</td>
+                      <td><form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></form></td>
                   </tr>
                   {%endfor%}
                 </tbody>
@@ -91,17 +117,6 @@
               class="btn btn-outline-light" id="letra">
               <h2>ACTUALIZAR
                 <img src="{%static 'img/Nueva carpeta/actualizar.png'%}" width="35"
-                  class="img-fluid">
-              </h2>
-            </button>
-            <div class="d-flex mt-3"></div>
-          </form>
-
-          <form class="col-lg-4 mt-4 mt-lg-0 m-2">
-            <button type="button" class="d-flex member"
-              class="btn btn-outline-light">
-              <h2>BORRAR
-                <img src="{%static 'img/Nueva carpeta/borrar.png'%}" width="35"
                   class="img-fluid">
               </h2>
             </button>

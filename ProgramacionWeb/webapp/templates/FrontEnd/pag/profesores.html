@@ -45,6 +45,7 @@
         </div>
 
         <form class="row">
+            {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
                     <input type="text" class="form-control" id="Snombre" placeholder="Escribe tu nombre">

@@ -32,51 +32,53 @@
         <section id="about" id="outer-div" class="about">
             <div class="container" id="inner-div">
                <div class="row ">
-                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" id="leer" method="POST" action="{%url 'administrador'%}">
+                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" method="POST" action="{%url 'administrador'%}">
                      {%csrf_token%}
-                     <div class="d-flex member" >
-                        <div class="pic"><img src="{%static 'img/leer.png'%}" class="img-fluid" alt=""></div>
-                        <div class="container text-center">
-                           <button class="text-black pt-5" type="submit">LEER</button>
-                           <div class="d-flex mt-3">
-                           </div>
-                        </div>
-                     </div>
+                     <!--<a href="/pag/administrador.html"> !-->
+                     <button type="submit" class="d-flex member" class="btn btn-outline-light" >
+                        <h1 id="texto">CENTROS
+                           <img src="{%static 'img/gimnasio.png'%}" width="100" class="img-fluid">
+                        </h1>
+                     <!--</a>   !-->
+                     </button>
+                  <div class="d-flex mt-3"></div>
                   </form>
-              
-                  <form class="col-lg-5 mt-4 mt-lg-0 m-2" id="crear" method="POST" action="{%url 'socio'%}">
+                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" method="POST" action="{%url 'administradorsocio'%}">
                      {%csrf_token%}
-                     <div class="d-flex member">
-                        <div class="pic"><img src="{%static 'img/crear.png'%}" class="img-fluid" alt=""></div>
-                        <div class="container text-center">
-                           <button class="text-black pt-5" type="submit">CREAR</button>
-                        </div>
-                     </div>
+                     <button type="submit" class="d-flex member" class="btn btn-outline-light" >
+                        <h1>SOCIOS
+                           <img src="{%static 'img/personas.png'%}" width="100" class="img-fluid">
+                        </h1>
+                     </button>
+                  <div class="d-flex mt-3"></div>
                   </form>
-    
-                  <form class="col-lg-5 mt-4 mt-lg-0 m-2" id="actualizar" method="POST" action="{%url 'administrador'%}">
-                    {%csrf_token%}
-                    <div class="d-flex member">
-                       <div class="pic"><img src="{%static 'img/actualizar.png'%}" class="img-fluid" alt=""></div>
-                       <div class="container text-center ">
-                          <button class="text-black pt-5" type="submit">ACTUALIZAR</button>
-                          <div class="d-flex mt-3">
-                          </div>
-                       </div>
-                    </div>
-                 </form>
-    
-                 <form class="col-lg-5 mt-4 mt-lg-0 m-2" id="borrar" method="POST" action="{%url 'administrador'%}">
-                    {%csrf_token%}
-                    <div class="d-flex member">
-                       <div class="pic"><img src="{%static 'img/borrar.png'%}" class="img-fluid" alt=""></div>
-                       <div class="container text-center">
-                          <button class="text-black pt-5" type="submit">BORRAR</button>
-                          <div class="d-flex mt-3">
-                          </div>
-                       </div>
-                    </div>
-                 </form>
+                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" method="POST" action="{%url 'administradorprofesores'%}">
+                     {%csrf_token%}
+                     <button type="submit" class="d-flex member" class="btn btn-outline-light" >
+                        <h1>PROFESORES
+                           <img src="{%static 'img/profesor.png'%}" width="100" class="img-fluid">
+                        </h1>
+                     </button>
+                  <div class="d-flex mt-3"></div>
+                  </form>
+                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" method="POST" action="{%url 'administradorinstalaciones'%}">
+                     {%csrf_token%}
+                     <button type="submit" class="d-flex member" class="btn btn-outline-light" >
+                        <h1>INSTALACIONES
+                           <img src="{%static 'img/pesa.png'%}" width="100" class="img-fluid">
+                        </h1>
+                     </button>
+                  <div class="d-flex mt-3"></div>
+                  </form>
+                  <form class="col-lg-5 mt-4 mt-lg-0 m-2 center" method="POST" action="{%url 'servicios'%}">
+                     {%csrf_token%}
+                     <button type="submit" class="d-flex member" class="btn btn-outline-light" >
+                        <h1>SERVICIOS
+                           <img src="{%static 'img/cliente.png'%}" width="100" class="img-fluid">
+                        </h1>
+                     </button>
+                  <div class="d-flex mt-3"></div>
+                  </form>
                </div>
             </div>
          </section>

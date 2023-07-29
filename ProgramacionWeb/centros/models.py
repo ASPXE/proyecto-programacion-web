@@ -19,8 +19,6 @@ class Centros(models.Model):
     municipio = models.ForeignKey(Municipios, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f'ID Centro: {self.id}, Calle: {self.calle}, numExt: {self.numExt}, numInt: {self.numInt}' \
-               f'Codigo Postal: {self.codigoPostal}, Colonia: {self.colonia}, Estado: {self.estado}' \
-               f'Municipio: {self.municipio}'
+        return f'{self.nombre}'
 
 

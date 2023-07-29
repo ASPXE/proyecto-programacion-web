@@ -10,4 +10,4 @@ class Colonias(models.Model):
     codigoPostal = models.ForeignKey(CodigoPostal, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f'ID Colonia: {self.id}, Nombre: {self.nombre}, Codigo Postal: {self.codigoPostal}'
+        return f'{self.nombre}'
