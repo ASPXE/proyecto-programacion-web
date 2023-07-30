@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load bootstrap5%}
     {%load static%}
@@ -43,25 +43,20 @@
             <label class="fs-1 fw-bold">Instalaciones</label>
         </div>
         
-        <form class="row">
+        <form class="row" method="POST" action="{%url 'instalaciones'%}">
                 <div class="col-3 g-5 ">
-                    <label for="Snombre" class="form-label textwhite">Nombre instalación<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe la instalación">
+                    <label for="instalacion" class="form-label textwhite">Nombre instalación<label id="color">*</label></label>
+                    <input type="text" class="form-control" id="instalacion" placeholder="Escribe la instalación" name="nombreInstalacion" required>
                 </div>
-
-
                 <div class="col-3 g-5">
-                    <label for="Scosto" class="form-label textwhite">Centro al que pertenece<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="centros" class="form-label textwhite">Centro al que pertenece<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="centros">
                         <option selected>AQUI VAN LOS CENTROS, ANTONIO</option>
                         <option value="1">MUNICIPIOS</option>
                     </select>
                 </div>
-
-
-               
-                <div class="pt-5 text-center"  >
-                    <button class="mi-boton" >Sign Up</button>
+                <div class="pt-5 text-center">
+                    <button class="mi-boton" type="submit">Guardar instalacion</button>
                 </div>
 
         </form>

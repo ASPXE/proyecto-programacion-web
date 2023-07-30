@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load bootstrap5%}
     {%load static%}
@@ -23,12 +23,12 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <form method="POST" action="{%url 'menu'%}">
+    <form action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
     <!--TODO Agregar el action que habra el pop-up para insertar un servicio-->
-    <form method="POST" action="">
+    <form action="{%url 'servicios'%}">
         {%csrf_token%}
         <button class="toggle" id="crearservicios">Insertar</button>
     </form>
@@ -47,10 +47,10 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold pb-5">ADMINISTRADOR SERVICIOS</label>
         </div>
-        <form action>
-        <div class=" g-5 pb-4 ">
+        <form action="">
+            <div class=" g-5 pb-4 "></div>
           <input type="search" class="form-control " id="buscador"
-            placeholder="Buscar">
+            placeholder="Buscar"/>
         </form>
         <div class="pt-3">
           <form action>
@@ -79,12 +79,11 @@
                     <td>{{servicio.id}}</td>
                     <td>{{servicio.nombre}}</td>
                     <td>{{servicio.costo}}</td>
-                      <td> <form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></td></form>
+                    <td> <form action=""><button type="button" class="btn btn-warning btn-sm m-1">Editar</button><button type="button" class="btn btn-danger btn-sm m-1">Borrar</button></td></form>
                   </tr>
                   {%endfor%}
                 </tbody>
               </table>
-
         </form>
 
         

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load bootstrap5%}
     {%load static%}
@@ -25,12 +25,12 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <form method="POST" action="{%url 'menu'%}">
+    <form action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
     <!--TODO Agregar action que habra el pop-up para insertar un centro-->
-    <form method="POST" action="">
+    <form action="{%url 'centros'%}">
        {%csrf_token%}
        <button class="toggle" id="crearcentro">Insertar</button>
     </form>

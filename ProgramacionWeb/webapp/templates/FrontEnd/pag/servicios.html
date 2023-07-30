@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load bootstrap5%}
     {%load static%}
@@ -45,21 +45,15 @@
             {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="nombreServicio" required>
+                    <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="nombre" required>
                 </div>
-
-
                 <div class="col-3 g-5">
                     <label for="Scosto" class="form-label textwhite">Costo<label id="color">*</label></label>
                     <input type="number" step="any" class="form-control" id="Scosto" placeholder="Escribe el costo" name="costo" required>
                 </div>
-
-
-               
-                <div class="pt-5 text-center"  >
-                    <button class="mi-boton" >Guardar servicio</button>
+                <div class="pt-5 text-center">
+                    <button class="mi-boton" type="submit">Guardar servicio</button>
                 </div>
-
         </form>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load bootstrap5%}
     {%load static%}
@@ -44,7 +44,7 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold">Centros</label>
         </div>
-        <form class="row" method="POST" action="">
+        <form class="row" method="POST" action="{url 'centros'}">
             {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
@@ -96,8 +96,8 @@
                     </select>
                 </div>
                 
-                <div class="pt-5 text-center"  >
-                    <button class="mi-boton" >Guardar centro</button>
+                <div class="pt-5 text-center">
+                    <button class="mi-boton" type="submit">Guardar centro</button>
                 </div>
 
         </form>

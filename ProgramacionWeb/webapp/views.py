@@ -90,18 +90,32 @@ def instalaciones(request):
     return render(request, 'FrontEnd/pag/instalaciones.html')
 
 def servicios(request):
-    """
+
     if request.method == 'POST':
-        nombre = request.POST['nombreServicio']
+        nombre = request.POST['nombre']
         costo = request.POST['costo']
 
         servicio = Servicios(nombre=nombre, costo=costo)
         servicio.save()
-        messages.success(request, '¡Servicio registrado exitosamente!')
-        return redirect('servicios')
-    """
+        messages.success(request, "¡Servicio registrado exitosamente!")
+
     return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):
+
+    """
+    TODO Buscar la manera de hacer un query personalizado que obtenga el municipio y estado del codigo postal introducido
+    TODO Investigar como llenar de informacion un combobox en Django
+    TODO Investigar como recuperar la informacion de un combobox en Django
+    """
+
+    if request.method == 'POST':
+        nombreCentro = request.POST['nombreCentro']
+        calle = request.POST['calle']
+        numExt = request.POST['numExt']
+        numInt = request.POST['numInt']
+        codigoPostal = request.POST['cp']
+
+
     return render(request, 'FrontEnd/pag/centro.html')
 
 
