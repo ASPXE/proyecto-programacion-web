@@ -7,6 +7,7 @@ from centros.models import Centros
 from codigoPostal.models import CodigoPostal
 from colonias.models import Colonias
 from estados.models import Estados
+from gradoEstudios.models import gradoEstudios
 from instalaciones.models import Instalaciones
 from instalacionesCentros.models import InstalacionesCentros
 from municipios.models import Municipios
@@ -56,9 +57,37 @@ def menu(request):
 
 def socio(request):
 
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        apellidoP = request.POST['apellidoP']
+        apellidoM = request.POST['apellidoM']
+        calle = request.POST['calle']
+        numExt = request.POST['numExt']
+        numInt = request.POST['numInt']
+        mensualidad = request.POST['mensualidad']
+        cp = request.POST['cp']
+        colonia = request.POST['colonia']
+        estado = request.POST['estado']
+        municipio = request.POST['municipio']
+
+        cp = CodigoPostal.objects.get(pk=cp)
+        colonia = Colonias.objects.get(pk=colonia)
+        estado = Estados.objects.get(pk=estado)
+        municipio = Municipios.objects.get(pk=municipio)
+
+        socio = Socios(nombres=nombre, apellidoP=apellidoP, apellidoM=apellidoM, calle=calle, numExt=numExt, numInt=numInt,
+                       mensualidad=mensualidad, cp=cp, colonia=colonia, estado=estado, municipio=municipio)
+        socio.save()
+        return redirect('socio')
 
 
-    return render(request, 'FrontEnd/pag/socio.html')
+    codigosPostales = CodigoPostal.objects.all()
+    colonias = Colonias.objects.all()
+    estados = Estados.objects.all()
+    municipios = Municipios.objects.all()
+
+    return render(request, 'FrontEnd/pag/socio.html', {'codigosPostales':codigosPostales, 'colonias':colonias,
+                                                       'estados':estados, 'municipios':municipios})
 
 def administrador(request):
 
@@ -93,7 +122,44 @@ def administradorServicios(request):
 
     return render(request, 'FrontEnd/pag/administradorservicios.html', {'servicios':servicios})
 def profesores(request):
-    return render(request, 'FrontEnd/pag/profesores.html')
+
+
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        apellidoP = request.POST['apellidoP']
+        apellidoM = request.POST['apellidoM']
+        calle = request.POST['calle']
+        numExt = request.POST['numExt']
+        numInt = request.POST['numInt']
+        cp = request.POST['cp']
+        municipio = request.POST['municipio']
+        colonia = request.POST['colonia']
+        estado = request.POST['estado']
+        gradoEstudio = request.POST['gradoEstudio']
+
+        cp = CodigoPostal(pk=cp)
+        municipio = Municipios(pk=municipio)
+        colonia = Colonias(pk=colonia)
+        estado = Estados(pk=estado)
+        gradoEstudio = gradoEstudios(pk=gradoEstudio)
+
+        profesor = Profesores(nombre=nombre, apellidoP=apellidoP, apellidoM=apellidoM, calle=calle,
+                              numExt=numExt, numInt=numInt, cp=cp, municipio=municipio, colonia=colonia,
+                              estado=estado, gradoEstudios=gradoEstudio)
+        profesor.save()
+        return redirect('profesores')
+
+
+
+
+    codigosPostales = CodigoPostal.objects.all()
+    colonias = Colonias.objects.all()
+    estados = Estados.objects.all()
+    municipios = Municipios.objects.all()
+    gradosEstudios = gradoEstudios.objects.all()
+
+    return render(request, 'FrontEnd/pag/profesores.html', {'codigosPostales':codigosPostales, 'colonias':colonias, 'estados':estados,
+                                                            'municipios':municipios, 'gradosEstudios':gradosEstudios})
 def instalaciones(request):
 
     if request.method == 'POST':
@@ -107,6 +173,7 @@ def instalaciones(request):
 
         instalacionCentro = InstalacionesCentros(instalacion=instalacion, centro=centro)
         instalacionCentro.save()
+        return redirect('instalaciones')
 
     centros = Centros.objects.all()
     instalaciones = Instalaciones.objects.all()
@@ -122,6 +189,7 @@ def servicios(request):
         servicio = Servicios(nombre=nombre, costo=costo)
         servicio.save()
         messages.success(request, "¡Servicio registrado exitosamente!")
+        return redirect('servicios')
 
     return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):

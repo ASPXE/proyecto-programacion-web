@@ -80,44 +80,52 @@
                     <input type="text" class="form-control" id="Snumint" placeholder="Numero Int" name="numInt" >
                 </div>
 
-                <div class="col-2 g-5">
-                    <label for="Scodpost" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe tu Codigo Postal" name="cp" required>
+                <div class="col-3 g-5">
+                    <label for="cp" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="cp" name="cp">
+                        {%for codigoPostal in codigosPostales%}
+                        <option value="{{codigoPostal.id}}">{{codigoPostal.cp}}</option>
+                        {%endfor%}
+                    </select>
                 </div>
 
 
                 <div class="col-3 g-5">
+                    <label for="municipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="municipio" name="municipio">
+                        {%for municipio in municipios%}
+                        <option value="{{municipio.id}}">{{municipio.nombre}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <div class="col-3 g-5">
                     <label for="Scolonia" class="form-label textwhite">Colonia<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example" id="Scolonia">
-                        <option selected>AQUI VAN LAS COLONIAS, ANTONIO</option>
-                        <option value="1">ESTADOS</option>
+                    <select class="form-select" aria-label="Default select example" id="Scolonia" name="colonia">
+                        {%for colonia in colonias%}
+                        <option value="{{colonia.id}}">{{colonia.nombre}}</option>
+                        {%endfor%}
                     </select>                      
                 </div>
 
                 <div class="col-3 g-5">
                     <label for="Sestado" class="form-label textwhite">Estado<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example" id="Sestado">
-                        <option selected>AQUI VAN LOS ESTADOS, ANTONIO</option>
-                        <option value="1">ESTADOS</option>
+                    <select class="form-select" aria-label="Default select example" id="Sestado" name="estado">
+                        {%for estado in estados%}
+                        <option value="{{estado.id}}">{{estado.nombre}}</option>
+                        {%endfor%}
                     </select>                      
-                </div>
-
-                <div class="col-3 g-5">
-                    <label for="Smunicipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example" id="Smunicipio">
-                        <option selected>AQUI VAN LOS MUNICIPIOS, ANTONIO</option>
-                        <option value="1">MUNICIPIOS</option>
-                    </select>
                 </div>
                 
                 <div class="col-3 g-5">
                     <label for="Sgradoestudio" class="form-label textwhite">Grado de estudio<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example" id="Sgradoestudio">
-                        <option selected>AQUI VAN LOS GRADOS de estudio, ANTONIO</option>
-                        <option value="1">MUNICIPIOS</option>
+                    <select class="form-select" aria-label="Default select example" id="Sgradoestudio" name="gradoEstudio">
+                        {%for gradoEstudio in gradosEstudios%}
+                        <option value="{{gradoEstudio.id}}">{{gradoEstudio.grado}}</option>
+                        {%endfor%}
                     </select>
                 </div>
-                <div class="pt-5 text-center"  >
+                <div class="pt-5 text-center">
                     <button class="mi-boton" type="submit">Guardar profesor</button>
                 </div>
         </form>

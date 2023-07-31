@@ -40,7 +40,7 @@
         <div class="form-group text-center textwhite">
             <label class="fs-1 fw-bold">Socios</label>
         </div>
-        <form class="row" action="" method="POST">
+        <form class="row" action="{%url 'socio'%}" method="POST">
             {%csrf_token%}
                 <div class="col-3 g-5 ">
                     <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label> </label>
@@ -70,29 +70,36 @@
                     <label for="mensualidad" class="form-label textwhite">Mensualidad<label id="color">*</label></label>
                     <input type="number" step="any" class="form-control" id="mensualidad" placeholder="Mensualidad" name="mensualidad" required>
                 </div>
-                <div class="col-2 g-5">
-                    <label for="Scodpost" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
-                    <input type="text" class="form-control" id="Scodpost" placeholder="Escribe tu Codigo Postal" name="cp" required>
+                <div class="col-3 g-5">
+                    <label for="codigoP" class="form-label textwhite">Codigo Postal<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="codigoP" name="cp">
+                        {%for codigoPostal in codigosPostales%}
+                        <option value="{{codigoPostal.id}}">{{codigoPostal.cp}}</option>
+                        {%endfor%}
+                    </select>
                 </div>
                 <div class="col-3 g-5">
-                    <label for="Scolonia" class="form-label textwhite">Colonia<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>AQUI VAN LAS COLONIAS, ANTONIO</option>
-                        <option value="1">ESTADOS</option>
+                    <label for="colonia" class="form-label textwhite">Colonia<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="colonia" name="colonia">
+                        {%for colonia in colonias%}
+                        <option value="{{colonia.id}}">{{colonia.nombre}}</option>
+                        {%endfor%}
                     </select>                      
                 </div>
                 <div class="col-3 g-5">
-                    <label for="Sestado" class="form-label textwhite">Estado<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>AQUI VAN LOS ESTADOS, ANTONIO</option>
-                        <option value="1">ESTADOS</option>
+                    <label for="estado" class="form-label textwhite">Estado<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="estado" name="estado">
+                        {%for estado in estados%}
+                        <option value="{{estado.id}}">{{estado.nombre}}</option>
+                        {%endfor%}
                     </select>                      
                 </div>
                 <div class="col-3 g-5">
-                    <label for="Smunicipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>AQUI VAN LOS MUNICIPIOS, ANTONIO</option>
-                        <option value="1">MUNICIPIOS</option>
+                    <label for="municipio" class="form-label textwhite">Municipio<label id="color">*</label></label>
+                    <select class="form-select" aria-label="Default select example" id="municipio" name="municipio">
+                        {%for municipio in municipios%}
+                        <option value="{{municipio.id}}">{{municipio.nombre}}</option>
+                        {%endfor%}
                     </select>
                 </div>
                 <div class="pt-5 text-center">
