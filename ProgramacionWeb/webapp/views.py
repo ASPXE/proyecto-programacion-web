@@ -4,7 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 from centros.models import Centros
+from codigoPostal.models import CodigoPostal
+from colonias.models import Colonias
+from estados.models import Estados
+from instalaciones.models import Instalaciones
 from instalacionesCentros.models import InstalacionesCentros
+from municipios.models import Municipios
 from profesores.models import Profesores
 from servicios.models import Servicios
 from socios.models import Socios
@@ -50,6 +55,9 @@ def menu(request):
     return render(request, 'FrontEnd/pag/menu.html')
 
 def socio(request):
+
+
+
     return render(request, 'FrontEnd/pag/socio.html')
 
 def administrador(request):
@@ -87,7 +95,23 @@ def administradorServicios(request):
 def profesores(request):
     return render(request, 'FrontEnd/pag/profesores.html')
 def instalaciones(request):
-    return render(request, 'FrontEnd/pag/instalaciones.html')
+
+    if request.method == 'POST':
+        # Obtenemos el ID
+        instalacion = request.POST['instalacion']
+        centro = request.POST['centro']
+
+        # Recuperamos el objeto de la BD con ayuda del ID
+        instalacion = Instalaciones.objects.get(pk=instalacion)
+        centro = Centros.objects.get(pk=centro)
+
+        instalacionCentro = InstalacionesCentros(instalacion=instalacion, centro=centro)
+        instalacionCentro.save()
+
+    centros = Centros.objects.all()
+    instalaciones = Instalaciones.objects.all()
+
+    return render(request, 'FrontEnd/pag/instalaciones.html', {'centros':centros, 'instalaciones':instalaciones})
 
 def servicios(request):
 
@@ -102,20 +126,38 @@ def servicios(request):
     return render(request, 'FrontEnd/pag/servicios.html')
 def centros(request):
 
-    """
-    TODO Buscar la manera de hacer un query personalizado que obtenga el municipio y estado del codigo postal introducido
-    TODO Investigar como llenar de informacion un combobox en Django
-    TODO Investigar como recuperar la informacion de un combobox en Django
-    """
-
     if request.method == 'POST':
         nombreCentro = request.POST['nombreCentro']
         calle = request.POST['calle']
         numExt = request.POST['numExt']
         numInt = request.POST['numInt']
+        """
+        Estamos recuperando el ID de lo seleccionado por el usuario, debemos de pasar
+        como parametro el objeto
+        """
         codigoPostal = request.POST['cp']
+        colonia = request.POST['colonia']
+        estado = request.POST['estado']
+        municipio = request.POST['municipio']
 
+        # Recuperamos el objeto donde el ID es igual al seleccionado en el HTML
+        codigoPostal = CodigoPostal.objects.get(pk=codigoPostal)
+        colonia = Colonias.objects.get(pk=colonia)
+        estado = Estados.objects.get(pk=estado)
+        municipio = Municipios.objects.get(pk=municipio)
 
-    return render(request, 'FrontEnd/pag/centro.html')
+        centro = Centros(nombre=nombreCentro, calle=calle, numExt=numExt, numInt=numInt, codigoPostal=codigoPostal,
+                         colonia=colonia, estado=estado, municipio=municipio)
+        centro.save()
+        messages.success(request, "¡Centro registrado exitosamente!")
+        return redirect('centros')
+
+    # Obtenemos los registros de la base de datos
+    codigosPostales = CodigoPostal.objects.all()
+    colonias = Colonias.objects.all()
+    estados = Estados.objects.all()
+    municipios = Municipios.objects.all()
+
+    return render(request, 'FrontEnd/pag/centro.html', {'colonias':colonias, 'estados':estados, 'municipios':municipios, 'codigosPostales':codigosPostales})
 
 

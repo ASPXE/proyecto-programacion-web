@@ -23,8 +23,7 @@
 <body>
     <input type="checkbox" class="toggle-check" id="toggle" hidden>
     <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-    <!--TODO Cambiar esto del menu-->
-    <form method="POST", action="{%url 'menu'%}">
+    <form method="POST" action="{%url 'menu'%}">
         {%csrf_token%}
         <button class="toggle" id="regresarmenu">Menu Principal</button>
     </form>
