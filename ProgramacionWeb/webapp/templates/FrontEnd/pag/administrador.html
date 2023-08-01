@@ -106,9 +106,7 @@
                         <a href="{%url 'editarCentro' centro.id%}">Editar</a>
                     </td>
                     <td>
-                        <form action="">
-                            <button type="button" type="submit" class="btn btn-danger btn-sm m-1">Borrar</button>
-                        </form>
+                        <a href="{%url 'eliminarCentro' centro.id%}">Eliminar</a>
                     </td>
                 </tr>
                 {%endfor%}

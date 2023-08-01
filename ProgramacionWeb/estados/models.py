@@ -7,7 +7,7 @@ from paises.models import Paises
 
 class Estados(models.Model):
     nombre = models.CharField(max_length=40)
-    pais = models.ForeignKey(Paises, on_delete=models.PROTECT)
+    pais = models.ForeignKey(Paises, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'{self.nombre} '

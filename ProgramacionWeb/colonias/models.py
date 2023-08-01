@@ -7,7 +7,7 @@ from codigoPostal.models import CodigoPostal
 
 class Colonias(models.Model):
     nombre = models.CharField(max_length=45)
-    codigoPostal = models.ForeignKey(CodigoPostal, on_delete=models.PROTECT)
+    codigoPostal = models.ForeignKey(CodigoPostal, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'{self.nombre}'

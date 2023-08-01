@@ -7,7 +7,7 @@ from municipios.models import Municipios
 
 class CodigoPostal(models.Model):
     cp = models.CharField(max_length=5)
-    municipio = models.ForeignKey(Municipios, on_delete=models.PROTECT)
+    municipio = models.ForeignKey(Municipios, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'{self.cp}'

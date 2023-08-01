@@ -17,11 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from centros.views import editarCentro
-from instalaciones.views import editarInstalacion
-from profesores.views import editarProfesor
-from servicios.views import editarServicio
-from socios.views import editarSocio
+from centros.views import editarCentro, eliminarCentro
+from instalacionesCentros.views import editarInstalacion, eliminarInstalacion
+from profesores.views import editarProfesor, eliminarProfesor
+from servicios.views import editarServicio, eliminarServicio
+from socios.views import editarSocio, eliminarSocio
 from webapp.views import signIn, signUp, menu, socio, administrador, administradorSocio, administradorProfesores, \
     administradorServicios, administradorInstalaciones, instalaciones, centros, profesores, servicios
 
@@ -44,5 +44,10 @@ urlpatterns = [
     path('editarSocio/<int:id>', editarSocio, name='editarSocio'),
     path('editarProfesor/<int:id>', editarProfesor, name='editarProfesor'),
     path('editarInstalacion/<int:id>', editarInstalacion, name='editarInstalacion'),
-    path('editarServicio/<int:id>', editarServicio, name='editarServicio')
+    path('editarServicio/<int:id>', editarServicio, name='editarServicio'),
+    path('eliminarCentro/<int:id>', eliminarCentro, name='eliminarCentro'),
+    path('eliminarSocio/<int:id>', eliminarSocio, name='eliminarSocio'),
+    path('eliminarProfesor/<int:id>', eliminarProfesor, name='eliminarProfesor'),
+    path('eliminarInstalacion/<int:id>', eliminarInstalacion, name='eliminarInstalacion'),
+    path('eliminarServicio/<int:id>', eliminarServicio, name='eliminarServicio')
 ]

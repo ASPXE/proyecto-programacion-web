@@ -16,3 +16,9 @@ def editarServicio(request, id):
     else:
         formaServicio = ServicioForm(instance=servicio)
     return render(request, 'FrontEnd/pag/editarServicio.html', {'formaServicio':formaServicio})
+
+def eliminarServicio(request, id):
+    servicio = get_object_or_404(Servicios, pk=id)
+    if servicio:
+        servicio.delete()
+        return redirect('administradorservicios')

@@ -18,3 +18,9 @@ def editarCentro(request, id):
         formaCentro = CentroForm(instance=centro)
 
     return render(request, 'FrontEnd/pag/editarCentro.html', {'formaCentro':formaCentro})
+
+def eliminarCentro(request, id):
+    centro = get_object_or_404(Centros, pk=id)
+    if centro:
+        centro.delete()
+    return redirect('administrador')

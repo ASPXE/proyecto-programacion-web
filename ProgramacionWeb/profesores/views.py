@@ -17,3 +17,9 @@ def editarProfesor(request, id):
         formaProfesor = ProfesorForm(instance=profesor)
     return render(request, 'FrontEnd/pag/editarSocios.html', {'formaSocio': formaProfesor})
 
+def eliminarProfesor(request, id):
+    profesor = get_object_or_404(Profesores, pk=id)
+    if profesor:
+        profesor.delete()
+        return redirect('administradorprofesores')
+

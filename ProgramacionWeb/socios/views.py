@@ -17,3 +17,9 @@ def editarSocio(request, id):
         formaSocio = SocioForm(instance=socio)
     return render(request, 'FrontEnd/pag/editarSocios.html', {'formaSocio':formaSocio})
 
+def eliminarSocio(request, id):
+    socio = get_object_or_404(Socios, pk=id)
+    if socio:
+        socio.delete()
+        return redirect('administradorsocio')
+
