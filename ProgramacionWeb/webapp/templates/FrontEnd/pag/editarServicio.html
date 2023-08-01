@@ -45,19 +45,13 @@
     <div class="form-group text-center textwhite">
         <label class="fs-1 fw-bold">Servicios</label>
     </div>
-    <form class="row" method="POST" action="{%url 'servicios'%}">
+    <form class="row" method="POST">
         {%csrf_token%}
-        <div class="col-3 g-5 ">
-            <label for="Snombre" class="form-label textwhite">Nombre<label id="color">*</label></label>
-            <input type="text" class="form-control" id="Snombre" placeholder="Escribe el nombre" name="nombre" required>
-        </div>
-        <div class="col-3 g-5">
-            <label for="Scosto" class="form-label textwhite">Costo<label id="color">*</label></label>
-            <input type="number" step="any" class="form-control" id="Scosto" placeholder="Escribe el costo" name="costo"
-                   required>
-        </div>
+        <table>
+          {{formaServicio}}
+        </table>
         <div class="pt-5 text-center">
-            <button class="mi-boton" type="submit">Guardar servicio</button>
+            <button class="mi-boton" type="submit">Guardar cambios</button>
         </div>
     </form>
 </div>

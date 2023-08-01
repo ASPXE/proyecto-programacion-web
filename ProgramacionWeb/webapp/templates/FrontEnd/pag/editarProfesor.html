@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{%static 'css/socio.css'%}">
     <link rel="stylesheet" href="{%static 'css/sliderresponsive.css'%}">
     <link rel="stylesheet" href="{%static 'css/administrador.css'%}">
-    <script type="text/javascript" src="{%static 'js/script.js'%}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://kit.fontawesome.com/f90d3bf50d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
@@ -21,8 +20,7 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{%static 'img/flaviconLeer.png'%}">
-    <title>CRUD CENTRO</title>
-
+    <title>CRUD PROFESORES</title>
 
 </head>
 <body>
@@ -32,13 +30,10 @@
     {%csrf_token%}
     <button class="toggle" id="regresarmenu">Menu Principal</button>
 </form>
-<!--TODO Agregar action que habra el pop-up para insertar un centro-->
-<form action="{%url 'centros'%}">
+<form action="{%url 'profesores'%}">
     {%csrf_token%}
-    <button class="toggle" id="crearcentro">Insertar</button>
+    <button class="toggle" id="crearprofes">Insertar</button>
 </form>
-
-
 <div class="container-menu">
     <nav class="menu">
         <img src="{%static 'img/gym-near.png'%}" width="70" height="70" class="pb-2">
@@ -51,72 +46,36 @@
 </div>
 <div class="container">
     <div class="form-group text-center textwhite">
-        <label class="fs-1 fw-bold pb-5">ADMINISTRADOR CENTRO</label>
+        <label class="fs-1 fw-bold pb-5">ADMINISTRADOR PROFESORES</label>
     </div>
-
     <form action="">
         <div class=" g-5 pb-4 ">
             <input type="search" class="form-control " id="buscador" placeholder="Buscar">
-        </div>
     </form>
     <div class="pt-3">
-        <form action>
+        <form action="">
             <select class="form-select" id="cbAdm">
                 <option selected>¿Qué va a buscar?</option>
-                <option value="1">N°Centro</option>
+                <option value="1">Matricula</option>
                 <option value="2">Nombre</option>
-                <option value="3">Dirección</option>
-                <option value="4">Código postal</option>
-                <option value="5">Colonia</option>
-                <option value="6">Municipio</option>
-                <option value="7">Estado</option>
-                <option value="8">Pais</option>
+                <option value="3">1°Apellido</option>
+                <option value="4">2°Apellido</option>
+                <option value="5">Dirección</option>
+                <option value="6">Código postal</option>
+                <option value="7">Colonia</option>
+                <option value="8">Municipio</option>
+                <option value="9">Estado</option>
+                <option value="10">Pais</option>
+                <option value="11">Grado De Estudios</option>
             </select>
         </form>
     </div>
-    <div class="pt-3">
-        <form class="row">
-            <table class="table">
-                <thead>
-                <tr class="table-dark">
-                    <th scope="col">IDcentro</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Calle</th>
-                    <th scope="col">Numero Ext</th>
-                    <th scope="col">Numero Int</th>
-                    <th scope="col">Colonia</th>
-                    <th scope="col">Codigo Postal</th>
-                    <th scope="col">Municipio</th>
-                    <th scope="col">Estado</th>
-                </tr>
-                </thead>
-                <tbody>
-                {%for centro in centros%}
-                <tr>
-                    <td>{{centro.id}}</td>
-                    <td>{{centro.nombre}}</td>
-                    <td>{{centro.calle}}</td>
-                    <td>{{centro.numExt}}</td>
-                    <td>{{centro.numInt}}</td>
-                    <td>{{centro.colonia}}</td>
-                    <td>{{centro.codigoPostal}}</td>
-                    <td>{{centro.municipio}}</td>
-                    <td>{{centro.estado}}</td>
-                    <td>
-                        <a href="{%url 'editarCentro' centro.id%}">Editar</a>
-                    </td>
-                    <td>
-                        <form action="">
-                            <button type="button" type="submit" class="btn btn-danger btn-sm m-1">Borrar</button>
-                        </form>
-                    </td>
-                </tr>
-                {%endfor%}
-                </tbody>
-            </table>
-
-        </form>
-    </div>
+    <form class="row">
+        {%csrf_token%}
+        <table class="table">
+            {{formaProfesor}}
+        </table>
+    </form>
 
 
     <div class="container about" id="inner-div2">
@@ -127,17 +86,6 @@
                         class="btn btn-outline-light" id="letra">
                     <h2>ACTUALIZAR
                         <img src="{%static 'img/Nueva carpeta/actualizar.png'%}" width="35"
-                             class="img-fluid">
-                    </h2>
-                </button>
-                <div class="d-flex mt-3"></div>
-            </form>
-
-            <form class="col-lg-4 mt-4 mt-lg-0 m-2">
-                <button type="button" class="d-flex member"
-                        class="btn btn-outline-light">
-                    <h2>BORRAR
-                        <img src="{%static 'img/Nueva carpeta/borrar.png'%}" width="35"
                              class="img-fluid">
                     </h2>
                 </button>

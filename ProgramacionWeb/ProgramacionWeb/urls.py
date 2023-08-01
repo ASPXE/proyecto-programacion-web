@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from centros.views import editarCentro
+from instalaciones.views import editarInstalacion
+from profesores.views import editarProfesor
+from servicios.views import editarServicio
+from socios.views import editarSocio
 from webapp.views import signIn, signUp, menu, socio, administrador, administradorSocio, administradorProfesores, \
     administradorServicios, administradorInstalaciones, instalaciones, centros, profesores, servicios
 
@@ -34,5 +39,10 @@ urlpatterns = [
     path('profesores/', profesores, name='profesores'),
     path('instalaciones/', instalaciones, name='instalaciones'),
     path('servicios/', servicios, name='servicios'),
-    path('centros/', centros, name='centros')
+    path('centros/', centros, name='centros'),
+    path('editarCentro/<int:id>', editarCentro, name='editarCentro'),
+    path('editarSocio/<int:id>', editarSocio, name='editarSocio'),
+    path('editarProfesor/<int:id>', editarProfesor, name='editarProfesor'),
+    path('editarInstalacion/<int:id>', editarInstalacion, name='editarInstalacion'),
+    path('editarServicio/<int:id>', editarServicio, name='editarServicio')
 ]

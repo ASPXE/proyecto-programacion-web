@@ -7,7 +7,8 @@
     {%bootstrap_javascript%}
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{%static 'css/visual.css'%}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{%static 'img/iconopag.png'%}">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -19,35 +20,35 @@
 
 
 <body>
-    
-    <div class="container">
-        <div class="row justify-content-center pt-5 mt-5 mr-1">
-            <div class="col-md-4 formulario">
-                <form action="{%url 'signIn'%}" method="POST">
-                    {%csrf_token%}
-                    <div class="form-group text-center">
-                        <img  src="{%static 'img/mysql.png'%}" width="100" height="100" >
-                        <h1 class="text-light pt-3"><b>Bienvenido</b></h1>
-                        <h5 class="text-light pt-2">Just do it.</h5>
-                        <div class="form-group text-center pt-3 ">
-                            <label class="textwhite">¿No estas registrado?</label>
-                            <a href="{%url 'signUp'%}"><label class="textblue">Hazlo aquí.</label></a>
-                        </div>
-                           
+
+<div class="container">
+    <div class="row justify-content-center pt-5 mt-5 mr-1">
+        <div class="col-md-4 formulario">
+            <form action="{%url 'signIn'%}" method="POST">
+                {%csrf_token%}
+                <div class="form-group text-center">
+                    <img src="{%static 'img/mysql.png'%}" width="100" height="100">
+                    <h1 class="text-light pt-3"><b>Bienvenido</b></h1>
+                    <h5 class="text-light pt-2">Just do it.</h5>
+                    <div class="form-group text-center pt-3 ">
+                        <label class="textwhite">¿No estas registrado?</label>
+                        <a href="{%url 'signUp'%}"><label class="textblue">Hazlo aquí.</label></a>
                     </div>
-                    <div class="form-group mx-sm-4 pt-4 pb-3">
-                        <input type="text" class="form-control " placeholder="Usuario" name="usuario" required>
-                    </div> 
-                    <div class="form-group mx-sm-4 pt-2 pb-4">
-                        <input type="password" class="form-control"  placeholder="Contraseña" name="contra" required>
-                    </div> 
-                    <div class="form-group mx-sm-4 pt-3 pb-5">
-                        <input type="submit" class="btn d-grid gap-2 col-12 mx-auto  ingresar" value="Continuar">
-                    </div>
-                </form> 
-            </div>
+
+                </div>
+                <div class="form-group mx-sm-4 pt-4 pb-3">
+                    <input type="text" class="form-control " placeholder="Usuario" name="usuario" required>
+                </div>
+                <div class="form-group mx-sm-4 pt-2 pb-4">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="contra" required>
+                </div>
+                <div class="form-group mx-sm-4 pt-3 pb-5">
+                    <input type="submit" class="btn d-grid gap-2 col-12 mx-auto  ingresar" value="Continuar">
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 </body>
 </html>

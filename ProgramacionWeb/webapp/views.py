@@ -227,5 +227,3 @@ def centros(request):
     municipios = Municipios.objects.all()
 
     return render(request, 'FrontEnd/pag/centro.html', {'colonias':colonias, 'estados':estados, 'municipios':municipios, 'codigosPostales':codigosPostales})
-
-

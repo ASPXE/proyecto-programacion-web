@@ -20,12 +20,11 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{%static 'img/faviconinsertar.png'%}">
-    <title>Agregar instalación</title>
+    <title>Editar instalación</title>
 </head>
 <body>
 <input type="checkbox" class="toggle-check" id="toggle" hidden>
 <label class="toggle fw-bold h5 text-white" for="toggle">≡</label>
-<!--TODO cambiar esta cosa de regresarmenu-->
 <form method="POST" , action="{%url 'menu'%}">
     {%csrf_token%}
     <button class="toggle" id="regresarmenu">Menu Principal</button>
@@ -46,27 +45,14 @@
         <label class="fs-1 fw-bold">Instalaciones</label>
     </div>
 
-    <form class="row" method="POST" action="{%url 'instalaciones'%}">
+    <form class="row" method="POST">
         {%csrf_token%}
-        <div class="col-3 g-5">
-            <label for="instalacion" class="form-label textwhite">Centro al que pertenece<label
-                    id="color">*</label></label>
-            <select class="form-select" aria-label="Default select example" id="instalacion" name="instalacion">
-                {%for instalacion in instalaciones%}
-                <option value="{{instalacion.id}}">{{instalacion.nombre}}</option>
-                {%endfor%}
-            </select>
-        </div>
-        <div class="col-3 g-5">
-            <label for="centros" class="form-label textwhite">Centro al que pertenece<label id="color">*</label></label>
-            <select class="form-select" aria-label="Default select example" id="centros" name="centro">
-                {%for centro in centros%}
-                <option value="{{centro.id}}">{{centro.nombre}}</option>
-                {%endfor%}
-            </select>
-        </div>
+        <table>
+            {{formaInstalacion}}
+        </table>
+
         <div class="pt-5 text-center">
-            <button class="mi-boton" type="submit">Guardar instalacion</button>
+            <button class="mi-boton" type="submit">Guardar cambios</button>
         </div>
 
     </form>
